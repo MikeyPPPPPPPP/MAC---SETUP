@@ -1,0 +1,35 @@
+
+
+# gerp
+
+* search for two patterns
+grep  "iis\|aspx"
+
+
+# awk loop over columns
+
+awk '{for (i=1; i<=NF; i++) {print $i}}'
+
+
+
+
+  ## awk '$3 ~/^http/{print $3}'
+
+          ^  ^ ^----^.       ^
+          |. | |             L Print the third colums
+          |. | L Starts with http
+          |. L Use regex
+          |
+          L select the column to check
+  
+# awk loop over colums for text
+
+cat awk.txt| awk '{for (i=1; i<=NF; i++) {if($i ~/^http/) print $3}}'
+                  ^--------------------^  ^  ^  ^                L Print the third column
+                  |						            |  |  L Regex starts with http
+                  |						            |  |
+                  |                       |  L  Iderated column  
+                  | 					            |   
+                  |                       L if statment
+                  |
+                  L for loop   L NF - means number of feilds     
